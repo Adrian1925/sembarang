@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="chart" style="width:600px;height:400px;"></div>
+    <script src="https://cdn.jsdelivr.net/npm/flotr2@0.1.0/flotr2.min.js"></script>
+    <script>
+        window.onload = function() {
+            var snbt = [
+                [2017, 148066],
+                [2018, 165831],
+                [2019, 168742],
+                [2020, 167653],
+                [2021, 184942]
+            ];
+
+            Flotr.draw(
+                document.getElementById("chart"),
+                [
+                    {
+                        data: snbt,
+                        label: "Jumlah siswa lolos SNBT",
+                        bars: { show: true },
+                        shadowSize: 0,
+                        color: "#0000FF",
+                        barWidth: 1
+                    },
+                ],
+                {
+                    title: "Daftar jumlah siswa lolos SNBT tahun 2017 sampai 2021",
+                    grid: { horizontalLines: false, verticalLines: false },
+                    yaxis: { 
+                        min: 0, 
+                        max: 200000,
+                        tickFormatter: function(val) {
+                            return val.toFixed(0); // Menghilangkan desimal
+                        }
+                    }
+                }
+            );
+        };
+    </script>
+</body>
+</html>

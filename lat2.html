@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="chart" style="width: 400px;height: 400px; float: left;"></div>
+    <script src="https://cdn.jsdelivr.net/npm/flotr2@0.1.0/flotr2.min.js"></script>
+    <script>
+        window.onload = function (){
+
+            data = [
+                {data: [[0,27.77]], label: "Siswa yang lolos SNBT 2023"},
+                {data: [[0,72.23]], label: "SIswa yang tidak lolos UTBK 2023"}
+            ];
+            Flotr.draw(document.getElementById("chart"),data,{
+                title: "Diagram siswa yang lolos SNBT 2023",
+                pie: {
+                    show: true,
+                },
+                yaxis: {
+                    showLabels: false,
+                },
+                xaxis: {
+                    showLabels: false,
+                },
+                grid:{
+                    horizontalLines: false,
+                    verticalLines: false,
+                }
+            });
+        };
+    </script>
+</body>
+</html>

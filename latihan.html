@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="chart1" style="width: 400px; height: 400px; float: left;"></div>
+    <div id="chart2" style="width: 600px; height: 400px; float: left; margin-left: 200px;"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/flotr2@0.1.0/flotr2.min.js"></script>
+    <script>
+        window.onload = function () {
+            var co2 = [            
+            [ 1959, 315.97],
+            [ 1960, 316.91],
+            [ 1961, 317.64],
+            [ 1962, 318.45],
+            [ 1963, 318.99],
+            [ 1964, 319.62],
+            [ 1965, 320.04],
+            [ 1966, 321.38],
+            [ 1967, 322.16],
+            [ 1968, 323.04],
+            [ 1969, 324.62],
+            [ 1970, 325.68],
+            [ 1971, 326.32],
+            [ 1972, 327.45],
+            [ 1973, 329.68],
+            [ 1974, 330.18],
+            [ 1975, 331.08], 
+            [ 1976, 332.05],
+            [ 1977, 333.78],
+            [ 1978, 335.41],
+            [ 1979, 336.78],
+            [ 1980, 338.68],
+            [ 1981, 327.92],
+            [ 1982, 329.56],
+            [ 1983, 330.18],
+            [ 1984, 331.07],
+            [ 1985, 332.04],
+            [ 1986, 333.83],
+            [ 1987, 335.41],
+            [ 1988, 336.78],
+            [ 1989, 338.68],
+            [ 1990, 340.1],
+            [ 1991, 341.44],
+            [ 1992, 342.83],
+            [ 1993, 344.36],
+            [ 1994, 345.9],
+            [ 1995, 347.14],
+            [ 1996, 348.92],
+            [ 1997, 350.35],
+            [ 1998, 351.56],
+            [ 1999, 352.96],
+            [ 2000, 354.27],
+            [ 2001, 355.57],
+            [ 2002, 356.38],
+            [ 2003, 356.87],
+            [ 2004, 358.43],
+            [ 2005, 360.23],
+            [ 2006, 362.9],
+            [ 2007, 356.9],
+            [ 2008, 369.4],
+            [ 2009, 375.45],       
+            [ 2010, 390.42],
+        ];
+            var temp = [
+            [ 1959, 0.0776],
+            [ 1960, 0.0280],
+            [ 1961, 0.1028],
+            [ 1962, 0.1289],
+            [ 1963, 0.1469],
+            [ 1964,-0.1171],
+            [ 1965,-0.0523],
+            [ 1966, 0.0063],
+            [ 1967, 0.0219],
+            [ 1968, 0.0093],
+            [ 1969, 0.1139],
+            [ 1970, 0.0684],
+            [ 1971,-0.0315],
+            [ 1972, 0.0558],
+            [ 1973, 0.1909],
+            [ 1974,-0.0527], 
+            [ 1975, 0.0172],
+            [ 1976,-0.0753],
+            [ 1977, 0.1779], 
+            [ 1978, 0.0990],
+            [ 1979, 0.1856],
+            [ 1980, 0.2301],
+            [ 1981, 0.1056],
+            [ 1982, 0.1223],
+            [ 1983, 0.0762],
+            [ 1984, 0.0356],
+            [ 1985, 0.0997],
+            [ 1986, 0.1198],
+            [ 1987, 0.0735],
+            [ 1988, 0.0273],
+            [ 1989, 0.1012],
+            [ 1990, 0.1275],
+            [ 1991, 0.0789],
+            [ 1992, 0.0309],
+            [ 1993, 0.1073],
+            [ 1994, 0.1256],
+            [ 1995, 0.0798],
+            [ 1996, 0.0234],
+            [ 1997, 0.1089],
+            [ 1998, 0.1242],
+            [ 1999, 0.0823],
+            [ 2000, 0.4224],
+            [ 2001, 0.3232],
+            [ 2002, 0.4334],
+            [ 2003, 0.0845],
+            [ 2004, 0.0187],
+            [ 2005, 0.5343],
+            [ 2006, 0.2313],
+            [ 2007, 0.6789],
+            [ 2008, 0.3456],
+            [ 2009, 0.2256],
+            [ 2010, 0.2245],
+        ];
+            var zero = []
+            for (yr=1959; yr<2012; yr++) zero.push([yr, 0]); 
+
+            Flotr.draw(document.getElementById("chart1"), [
+                { data: zero, label: "20<sup>th</sup> Century Baseline Temperature", lines: { show: true, linewidth: 1 }, shadowSize: 0, color: "#545454" },
+                { data: temp, label: "Yearly Temperature Difference (°c)", lines: { show: true } },
+                { data: co2, label: "co<sub>2</sub> Concentration (ppm)", lines: { show: true }, yaxis: 2 },
+            ], {
+                title: "Global Temperature and CO<sub>2</sub> Concentration (NOAA Data)",
+                grid: { horizontalLines: false, verticalLines: false },
+                y2axis: { min: 300, max: 400 },
+                yaxis: {
+                    min: -0.15,
+                    max: 0.69,
+                    tickFormatter: function (val) {
+                        return val + " °c";
+                    }
+                }
+            });
+
+       
+            var data = [ {data: [[0,22.4]], label: "Extreme Poverty"},
+                {data: [[1,77.6]], label: "Rest of the word"}]; 
+
+            Flotr.draw(document.getElementById("chart2"), data, {
+                title: "How Much of the World Lives on $1.25/day?",
+                pie: {
+                    show: true,
+                },
+                yaxis: {
+                    showLabels: false,
+                },
+                xaxis: {
+                    showLabels: false,
+                },
+                grid: {
+                    horizontalLines: false,
+                    verticalLines: false,
+                }
+            });
+        };
+    </script>
+</body>
+</html>

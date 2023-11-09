@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Visualisasi GDP</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .chart-container {
+            background-color: #fff;
+            border-radius: 5px;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="chart-container" style="width: 80%; margin: 20px auto;">
+        <canvas id="gdpChart"></canvas>
+    </div>
+    <script>
+        const data = {
+            labels: Array.from({ length: 51 }, (_, i) => 1960 + i),
+            datasets: [
+                {
+                    label: 'Negara A',
+                    data: [            [ 1959, 315.97],
+            [ 1960, 316.91],
+            [ 1961, 317.64],
+            [ 1962, 318.45],
+            [ 1963, 318.99],
+            [ 1964, 319.62],
+            [ 1965, 320.04],
+            [ 1966, 321.38],
+            [ 1967, 322.16],
+            [ 1968, 323.04],
+            [ 1969, 324.62],
+            [ 1970, 325.68],
+            [ 1971, 326.32],
+            [ 1972, 327.45],
+            [ 1973, 329.68],
+            [ 1974, 330.18],
+            [ 1975, 331.08], 
+            [ 1976, 332.05],
+            [ 1977, 333.78],
+            [ 1978, 335.41],
+            [ 1979, 336.78],
+            [ 1980, 338.68],
+            [ 1981, 327.92],
+                [ 1982, 329.56],
+                [ 1983, 330.18],
+                [ 1984, 331.07],
+                [ 1985, 332.04],
+                [ 1986, 333.83],
+                [ 1987, 335.41],
+                [ 1988, 336.78],
+                [ 1989, 338.68],
+                [ 1990, 340.1],
+                [ 1991, 341.44],
+                [ 1992, 342.83],
+                [ 1993, 344.36],
+                [ 1994, 345.9],
+                [ 1995, 347.14],
+                [ 1996, 348.92],
+                [ 1997, 350.35],
+                [ 1998, 351.56],
+                [ 1999, 352.96],
+                [ 2000, 354.27],
+                [ 2001, 355.57],
+                [ 2002, 356.38],
+                [ 2003, 356.87],
+                [ 2004, 358.43],
+                [ 2005, 360.23],
+                [ 2006, 362.9],
+                [ 2007, 356.9],
+                [ 2008, 369.4],
+                [ 2009, 375.45],
+            [ 2010, 390.42],
+            
+        ],
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    borderWidth: 2,
+                },
+                {
+                    label: 'Negara B',
+                    data: [/* Masukkan data GDP Negara B untuk tahun 1960-2010 */],
+                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 2,
+                },
+                {
+                    label: 'Negara C',
+                    data: [/* Masukkan data GDP Negara C untuk tahun 1960-2010 */],
+                    backgroundColor: 'rgba(255, 206, 86, 0.2)',
+                    borderColor: 'rgba(255, 206, 86, 1)',
+                    borderWidth: 2,
+                },
+                {
+                    label: 'Negara D',
+                    data: [/* Masukkan data GDP Negara D untuk tahun 1960-2010 */],
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    borderWidth: 2,
+                },
+                {
+                    label: 'Negara E',
+                    data: [/* Masukkan data GDP Negara E untuk tahun 1960-2010 */],
+                    backgroundColor: 'rgba(153, 102, 255, 0.2)',
+                    borderColor: 'rgba(153, 102, 255, 1)',
+                    borderWidth: 2,
+                },
+                {
+                    label: 'Negara F',
+                    data: [/* Masukkan data GDP Negara F untuk tahun 1960-2010 */],
+                    backgroundColor: 'rgba(255, 159, 64, 0.2)',
+                    borderColor: 'rgba(255, 159, 64, 1)',
+                    borderWidth: 2,
+                },
+            ],
+        };
+
+        const ctx = document.getElementById('gdpChart').getContext('2d');
+        const gdpChart = new Chart(ctx, {
+            type: 'line',
+            data: data,
+            options: {
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                    },
+                    y: {
+                        beginAtZero: true,
+                    },
+                },
+                plugins: {
+                    title: {
+                        display: true,
+                        text: 'Gross Domestic Product (GDP) per Tahun'
+                    },
+                    legend: {
+                        display: true,
+                        position: 'bottom',
+                    },
+                },
+            },
+        });
+    </script>
+</body>
+</html>
